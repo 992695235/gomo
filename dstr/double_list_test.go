@@ -124,7 +124,7 @@ func TestDoubleList_Delete(t *testing.T){
 	list := new(DoubleList)
 	list.Init()
 
-	b := list.Delete(1)
+	b := list.Delete(0)
 	if b {
 		t.Error("empty double list delete failed")
 	} else {

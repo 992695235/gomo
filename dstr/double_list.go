@@ -100,7 +100,7 @@ func (list *DoubleList)Insert(index uint, node *DoubleNode) bool {
 
 // Delete 删除指定位置的节点
 func (list *DoubleList) Delete (index uint) bool {
-	if index > list.Size - 1 {
+	if index + 1 > list.Size {
 		return false
 	}
 
@@ -117,7 +117,7 @@ func (list *DoubleList) Delete (index uint) bool {
 		list.Size--
 		return true
 	}
-	if index == list.Size - 1{
+	if index + 1 == list.Size{
 		list.Tail.Prev.Next = nil
 		list.Tail = list.Tail.Prev
 		list.Size--
