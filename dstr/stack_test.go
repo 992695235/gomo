@@ -55,3 +55,14 @@ func TestStack_Pop(t *testing.T){
 	}
 	t.Error("stack pop failed")
 }
+
+func TestStack_Peek(t *testing.T){
+	stack := new(Stack)
+	stack.Init()
+	d := stack.Peek()
+	if d == nil {
+		t.Log("empty stack peek success")
+		return
+	}
+	t.Error("empty stack peek fail")
+}
