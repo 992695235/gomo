@@ -47,7 +47,7 @@ func TestSingleList_Insert(t *testing.T){
 		t.Log("single list insert nil success")
 	}
 
-	b = list.Insert(1, nil)
+	b = list.Insert(1, &SingleNode{Data:1})
 	if b {
 		t.Error("single list insert out of range failed")
 	} else {
@@ -62,10 +62,11 @@ func TestSingleList_Insert(t *testing.T){
 	}
 
 	b = list.Insert(1, &SingleNode{Data:2})
+	b = list.Insert(2, &SingleNode{Data:3})
 	if b {
-		t.Log("single list insert second success")
+		t.Log("single list insert multi success")
 	} else {
-		t.Error("single list insert second failed")
+		t.Error("single list insert multi failed")
 	}
 }
 
@@ -91,12 +92,13 @@ func TestSingleList_Delete(t *testing.T){
 
 	list.Append(&SingleNode{Data:1})
 	list.Append(&SingleNode{Data:2})
+	list.Append(&SingleNode{Data:3})
 
-	b = list.Delete(1)
+	b = list.Delete(2)
 	if b {
-		t.Log("single list delete second success")
+		t.Log("single list delete third success")
 	} else {
-		t.Error("single list delete second failed")
+		t.Error("single list delete third failed")
 	}
 }
 
@@ -127,4 +129,16 @@ func TestSingleList_Get(t *testing.T){
 	}else {
 		t.Error("single list get second failed")
 	}
+}
+
+func TestSingleList_Display(t *testing.T){
+	list := new(SingleList)
+	list.Init()
+
+	list.Display()
+
+	list.Append(&SingleNode{Data:1})
+	list.Append(&SingleNode{Data:2})
+	list.Append(&SingleNode{Data:3})
+	list.Display()
 }

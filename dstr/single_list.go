@@ -138,7 +138,7 @@ func (list *SingleList)Get(index uint) *SingleNode{
 
 // 输出链表
 func (list *SingleList)Display(){
-	if list == nil {
+	if list == nil || list.Size == 0{
 		fmt.Println("this single list is nil")
 		return
 	}
